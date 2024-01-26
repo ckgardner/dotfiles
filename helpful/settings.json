@@ -1,0 +1,62 @@
+{
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.printWidth": 160,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "editor.tabSize": 2,
+  "git.autofetch": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "debug.javascript.autoAttachFilter": "disabled",
+  "files.autoSave": "afterDelay",
+  "cSpell.userWords": ["ckgardner", "Frontmatter", "zonos"],
+  "settingsSync.ignoredSettings": ["workbench.colorTheme"],
+  "css.lint.duplicateProperties": "warning",
+  "git.confirmSync": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "playwright.reuseBrowser": true,
+  "githubPullRequests.pullBranch": "never",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "editor.inlineSuggest.enabled": true,
+  "git.enableSmartCommit": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "switch:command",
+    "branch-create:command"
+  ],
+  "playwright.showTrace": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": -1,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFoldingRangeProvider": "vscode.github"
+  },
+  "markdownlint.config": {
+    "MD029": false
+  }
+}
