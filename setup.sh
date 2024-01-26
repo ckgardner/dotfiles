@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e  # Exit script if any command fails
+
 # Check if Oh My Zsh is already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   # Install Oh My Zsh if not installed
@@ -30,16 +32,37 @@ else
 fi
 
 # Copy .zshrc from dotfiles to the user's home directory
-if [ -f "./dotfiles/.zshrc" ]; then
+if [ -f "$HOME/dotfiles/dotfiles/.zshrc" ]; then
+  if [ -f "$HOME/.zshrc" ]; then
+    printf "The file .zshrc already exists in your home directory. Do you want to overwrite it? (y/n) "
+    read -k 1 -r
+    echo    # move to a new line
+    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    then
+      exit 1
+    fi
+  fi
   echo "Copying .zshrc to home directory..."
-  cp "./dotfiles/.zshrc" "$HOME/.zshrc"
+  cp "$HOME/dotfiles/dotfiles/.zshrc" "$HOME/.zshrc"
 else
-  echo "dotfiles/.zshrc does not exist"
+  echo "dotfiles/.zshrc does not exist. Make sure the dotfiles repo is cloned in the $HOME directory"
+  echo "Current working directory: $(pwd)"
 fi
 
-# Additional installations or configurations as needed
+# Install Powerline fonts
+if [ ! -d "$HOME/fonts" ]; then
+  echo "Installing Powerline fonts..."
+  git clone https://github.com/powerline/fonts.git --depth=1 "$HOME/fonts"
+  "$HOME/fonts/install.sh"
+  rm -rf "$HOME/fonts"
+else
+  echo "Powerline fonts are already installed"
+fi
 
-# Function to fetch and display ASCII art from a URL
+# Source the .zshrc file to apply the changes to the current session
+source "$HOME/.zshrc"
+
+# Function to fetch and display ASCII art
 display_ascii_art() {
   clear
 
@@ -52,9 +75,11 @@ display_ascii_art() {
   # Display the fetched ASCII art with a delay using sleep
   while IFS= read -r line; do
     echo "$line"
-    sleep 0.01 # Adjust the sleep duration to control the animation speed
+    sleep 0.005 # Adjust the sleep duration to control the animation speed
   done <<< "$ascii_art"
+
+  echo "Remember to set the font of your terminal to a Powerline font"
 }
 
-# Display the ASCII art
+# Display the ASCII art if successful
 display_ascii_art
