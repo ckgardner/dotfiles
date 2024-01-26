@@ -28,3 +28,7 @@ The .zshrc file is a configuration file for the Z shell. It contains configurati
 ## .vimrc
 
 The .vimrc file is a configuration file for Vim. It contains configuration options for the Vim editor such as syntax highlighting, line numbers, and more.
+
+## Dev Setup
+
+As an added bonus, I've added the `dev-setup.sh` script to install NodeJS through NVM.
